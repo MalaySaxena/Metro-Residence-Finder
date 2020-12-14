@@ -17,11 +17,11 @@ public class Tenant {
     @Column(name = "phone_no")
     private Integer phoneNo;
 
+    @Column(name ="firebase_id")
     private String firebaseId;
 
     private Gender gender;
 
-    @Column(name = "date_of_birth")
     private Date dob;
 
     private String address;
@@ -45,12 +45,16 @@ public class Tenant {
 
     private Integer budget;
 
+    @Column(name ="device_token")
     private String deviceToken;
 
+    @Column(name ="is_verified")
     private Boolean isVerified;
 
+    @Column(name ="registered_time")
     private Time registrationTime;
 
+    @Column(name ="updated_time")
     private Time updatedTime;
 
     public Long getId() {
