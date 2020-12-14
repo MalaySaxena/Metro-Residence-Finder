@@ -10,6 +10,7 @@ public class MetroResidenceFinderApplication {
 
 	public static void main(String[] args) {
 		System.out.println("My name is lavish");
+		System.out.println("My name is Malay");
 		SpringApplication.run(MetroResidenceFinderApplication.class, args);
 	}
 
