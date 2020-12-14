@@ -11,6 +11,7 @@ public class MetroResidenceFinderApplication {
 	public static void main(String[] args) {
 		System.out.println("My name is lavish");
 		System.out.println("My name is Malay");
+		System.out.println("2nd commit");
 		SpringApplication.run(MetroResidenceFinderApplication.class, args);
 	}
 
