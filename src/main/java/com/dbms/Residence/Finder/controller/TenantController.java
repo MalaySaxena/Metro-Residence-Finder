@@ -27,7 +27,14 @@ public class TenantController {
     public void updateTenant(){}
 
     @GetMapping("/check_mobile/{mobile}")
-    public void getTenantByMonbile(){}
+    public ResponseEntity<Tenant> getTenantByMobile(@PathVariable("mobile") Long mobile){
+        return new ResponseEntity<Tenant>(tenantService.getTenantByPhoneNo(mobile),HttpStatus.OK);
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Tenant> getTenantById(@PathVariable("id") Long id){
+        return new ResponseEntity<Tenant>(tenantService.getTenant(id),HttpStatus.OK);
+    }
 
 
 }
