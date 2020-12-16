@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LandlordService {
+    public LandlordService(LandlordRepository landlordRepository) {
+        this.landlordRepository = landlordRepository;
+    }
 
     private LandlordRepository landlordRepository;
 

@@ -1,5 +1,7 @@
 package com.dbms.Residence.Finder.controller;
 
+import com.dbms.Residence.Finder.models.Tenant;
+import com.dbms.Residence.Finder.service.TenantService;
 import org.hibernate.hql.internal.ast.tree.ResolvableNode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,8 +11,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/tenant")
 public class TenantController {
 
+    private TenantService tenantService;
+
+    public TenantController(TenantService tenantService) {
+        this.tenantService = tenantService;
+    }
+
     @PostMapping
-    public ResponseEntity<String> createTenant(){
+    public ResponseEntity<String> createTenant(@RequestBody Tenant tenant){
+        tenantService.addTenant(tenant);
         return new ResponseEntity<String>("Tenant Created", HttpStatus.OK );
     }
 

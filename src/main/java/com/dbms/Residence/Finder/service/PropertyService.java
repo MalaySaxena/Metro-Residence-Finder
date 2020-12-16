@@ -10,6 +10,10 @@ public class PropertyService {
 
     private PropertyRepository propertyRepository;
 
+    public PropertyService(PropertyRepository propertyRepository) {
+        this.propertyRepository = propertyRepository;
+    }
+
     public void addProperty(Property property){
         propertyRepository.save(property);
     }

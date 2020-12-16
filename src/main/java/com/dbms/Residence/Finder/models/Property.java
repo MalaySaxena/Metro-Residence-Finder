@@ -73,10 +73,6 @@ public class Property extends Locality{
 
     //how to get
 
-    public Property(){
-
-    }
-
     public String getName() {
         return name;
     }

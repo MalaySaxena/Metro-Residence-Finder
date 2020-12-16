@@ -11,6 +11,10 @@ public class BookingService {
 
     private BookingRepository bookingRepository;
 
+    public BookingService(BookingRepository bookingRepository) {
+        this.bookingRepository = bookingRepository;
+    }
+
     public void addBooking(Tenant tenant, Property property){
         bookingRepository.save(new Booking());
     }

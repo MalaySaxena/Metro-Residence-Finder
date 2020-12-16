@@ -13,6 +13,13 @@ public class TenantService {
 
     private TenantRepository tenantRepository;
     private PropertyService propertyService;
+
+    public TenantService(TenantRepository tenantRepository, PropertyService propertyService, BookingService bookingService) {
+        this.tenantRepository = tenantRepository;
+        this.propertyService = propertyService;
+        this.bookingService = bookingService;
+    }
+
     private BookingService bookingService;
 
     public void addTenant(Tenant tenant){
