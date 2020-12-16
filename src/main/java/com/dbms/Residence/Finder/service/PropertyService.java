@@ -27,6 +27,14 @@ public class PropertyService {
         return (List<Property>) propertyRepository.findAll();
     }
 
+    public List<Property> getPopularPropert(){
+        return propertyRepository.findByPopularProperty();
+    }
+
+    public List<Property> getPremiumPropert(){
+        return propertyRepository.findByPremiumProperty();
+    }
+
     public void setOwnerOfProperty(Landlord landlord, Property property){
         property.setLandlord(landlord);
         propertyRepository.save(property);

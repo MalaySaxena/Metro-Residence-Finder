@@ -36,9 +36,13 @@ public class PropertyController {
     }
 
     @GetMapping("/popular")
-    public void getPopularProperty(){}
+    public ResponseEntity<List<Property>> getPopularProperty(){
+        return new ResponseEntity<List<Property>>(propertyService.getPopularPropert(), HttpStatus.OK);
+    }
 
     @GetMapping("/premium")
-    public void getPremiumProperty(){}
+    public ResponseEntity<List<Property>> getPremiumProperty(){
+        return new ResponseEntity<List<Property>>(propertyService.getPremiumPropert(), HttpStatus.OK);
+    }
 
 }
