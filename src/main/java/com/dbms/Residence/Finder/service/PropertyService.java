@@ -4,6 +4,7 @@ import com.dbms.Residence.Finder.models.Landlord;
 import com.dbms.Residence.Finder.models.Property;
 import com.dbms.Residence.Finder.repository.PropertyRepository;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class PropertyService {
@@ -20,6 +21,10 @@ public class PropertyService {
 
     public Property getProperty(Long id){
         return propertyRepository.findById(id).get();
+    }
+
+    public List<Property> getAllProperty(){
+        return (List<Property>) propertyRepository.findAll();
     }
 
     public void setOwnerOfProperty(Landlord landlord, Property property){

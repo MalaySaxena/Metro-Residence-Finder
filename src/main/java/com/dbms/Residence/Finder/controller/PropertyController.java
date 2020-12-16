@@ -1,22 +1,42 @@
 package com.dbms.Residence.Finder.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.dbms.Residence.Finder.models.Property;
+import com.dbms.Residence.Finder.service.PropertyService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/properties")
 public class PropertyController {
 
-    @GetMapping
-    public void getProperty(){}
+    private PropertyService propertyService;
 
-    @GetMapping("/{id}")
-    public void getPropertyById(){}
+    public PropertyController(PropertyService propertyService) {
+        this.propertyService = propertyService;
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Property> getProperty(@PathVariable("id") Long id){
+        return new ResponseEntity<Property>(propertyService.getProperty(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Property>> getAllProperty(){
+        return new ResponseEntity<List<Property>>(propertyService.getAllProperty(),HttpStatus.OK);
+    }
+
+    @PostMapping
+    public String addProperty(@RequestBody Property property){
+        propertyService.addProperty(property);
+        return "Property added";
+    }
 
     @GetMapping("/popular")
-    public void getPopularPeoperty(){}
+    public void getPopularProperty(){}
 
     @GetMapping("/premium")
     public void getPremiumProperty(){}

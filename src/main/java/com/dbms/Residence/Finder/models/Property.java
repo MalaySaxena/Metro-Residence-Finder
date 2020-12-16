@@ -23,9 +23,8 @@ public class Property extends Locality{
 
     private Boolean flag;
 
-    public Property(String name){
+    public Property(){
         super();
-        this.name = name;
     }
 
     public Boolean getFlag() {

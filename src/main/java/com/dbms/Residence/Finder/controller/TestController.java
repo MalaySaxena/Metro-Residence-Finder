@@ -45,7 +45,7 @@ public class TestController {
     @PostMapping("/property")
     public void setP(){
         System.out.println("post");
-        propertyRepository.save(new Property("p1"));
+        //propertyRepository.save(new Property("p1"));
     }
 
     @GetMapping("/yes")
