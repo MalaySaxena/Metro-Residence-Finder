@@ -4,6 +4,7 @@ package com.dbms.Residence.Finder.models;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -21,6 +22,11 @@ public class Property extends Locality{
     private String description;
 
     private Boolean flag;
+
+    public Property(String name){
+        super();
+        this.name = name;
+    }
 
     public Boolean getFlag() {
         return flag;
@@ -67,18 +73,8 @@ public class Property extends Locality{
 
     //how to get
 
-    public Property(String longitude, String latitude, String address, String city, String state, String name, int price, Date updateTime, BigDecimal rating, String description, Date registrationDate, String availaibilityStatus, Byte[] image, int existingPeople, int bhk) {
-        super(longitude, latitude, address, city, state);
-        this.name = name;
-        this.price = price;
-        this.updateTime = updateTime;
-        this.rating = rating;
-        this.description = description;
-        this.registrationDate = registrationDate;
-        this.availaibilityStatus = availaibilityStatus;
-        this.image = image;
-        this.existingPeople = existingPeople;
-        this.bhk = bhk;
+    public Property(){
+
     }
 
     public String getName() {

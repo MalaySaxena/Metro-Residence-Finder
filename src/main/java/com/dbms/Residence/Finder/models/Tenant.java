@@ -56,7 +56,9 @@ public class Tenant {
     public Property getProperty() {
         return property;
     }
+    public Tenant(){
 
+    }
     public void setProperty(Property property) {
         this.property = property;
     }

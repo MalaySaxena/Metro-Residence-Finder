@@ -4,4 +4,7 @@ import com.dbms.Residence.Finder.models.Tenant;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TenantRepository extends CrudRepository<Tenant, Long> {
+
+    Tenant findByPhoneNo(Long phoneNo);
+
 }

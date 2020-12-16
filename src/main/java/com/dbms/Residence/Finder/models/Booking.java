@@ -40,6 +40,10 @@ public class Booking {
     private Timestamp updatedTime ;
 
 
+    public Booking(){
+
+    }
+
 
     public Date getCheckIn() {
         return checkIn;

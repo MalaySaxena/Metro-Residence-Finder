@@ -72,11 +72,4 @@ public class Locality {
         this.state = state;
     }
 
-    public Locality(String longitude, String latitude, String address, String city, String state) {
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-    }
 }

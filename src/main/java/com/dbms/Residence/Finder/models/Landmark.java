@@ -9,9 +9,8 @@ public class Landmark extends Locality{
 
     private String name;
 
-    public Landmark(String longitude, String latitude, String address, String city, String state, String name) {
-        super(longitude, latitude, address, city, state);
-        this.name = name;
+    public Landmark(){
+        super();
     }
 
     public String getName() {
