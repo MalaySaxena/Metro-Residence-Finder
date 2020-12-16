@@ -6,7 +6,9 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
+
 public class Property extends Locality{
+
     private String name;
 
     private int price;

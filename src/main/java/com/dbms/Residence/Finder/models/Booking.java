@@ -61,6 +61,7 @@ public class Booking {
     @JoinColumn(name = "property_id")
     private Property property;
 
+
     @Column(name = "check_in")
     private Date checkIn ;
 
