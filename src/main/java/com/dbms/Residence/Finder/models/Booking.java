@@ -11,12 +11,12 @@ public class Booking {
     @Id
     @GeneratedValue
     @Column(name = "tenant_id")
-    private int tenantId ;
+    private Long tenantId ;
 
     @Id
     @GeneratedValue
     @Column(name = "property_id")
-    private int propertyId ;
+    private Long propertyId ;
 
     @Column(name = "check_in")
     private Date checkIn ;

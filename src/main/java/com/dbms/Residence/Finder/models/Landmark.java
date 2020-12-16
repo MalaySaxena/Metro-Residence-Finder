@@ -10,7 +10,7 @@ public class Landmark {
     @Id
     @GeneratedValue
     @Column(name = "locality_id")
-    private int localityId;
+    private Long localityId;
 
     private String name;
 
