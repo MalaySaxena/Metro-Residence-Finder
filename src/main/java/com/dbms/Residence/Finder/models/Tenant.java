@@ -2,6 +2,7 @@ package com.dbms.Residence.Finder.models;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -14,7 +15,7 @@ public class Tenant {
     private String username;
 
     @Column(name = "phone_no")
-    private Integer phoneNo;
+    private Long phoneNo;
 
     @Column(name ="firebase_id")
     private String firebaseId;
@@ -27,7 +28,8 @@ public class Tenant {
 
     private String nationality;
 
-    public Tenant(String username, Integer phoneNo, String firebaseId, Gender gender, Date dob, String address, String nationality, Integer budget, String deviceToken, Boolean isVerified) {
+    public Tenant(String username, Long phoneNo, String firebaseId, Gender gender, Date dob, String address,
+                  String nationality, Integer budget, String deviceToken, Boolean isVerified) {
         this.username = username;
         this.phoneNo = phoneNo;
         this.firebaseId = firebaseId;
@@ -49,10 +51,21 @@ public class Tenant {
     private Boolean isVerified;
 
     @Column(name ="registered_time")
-    private Time registrationTime;
+    private Timestamp registrationTime;
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
 
     @Column(name ="updated_time")
-    private Time updatedTime;
+    private Timestamp updatedTime;
+
+    @ManyToOne
+    private Property property;
 
     public Long getId() {
         return id;
@@ -70,11 +83,11 @@ public class Tenant {
         this.username = username;
     }
 
-    public Integer getPhoneNo() {
+    public Long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(Integer phoneNo) {
+    public void setPhoneNo(Long phoneNo) {
         this.phoneNo = phoneNo;
     }
 
@@ -142,19 +155,19 @@ public class Tenant {
         isVerified = verified;
     }
 
-    public Time getRegistrationTime() {
+    public Timestamp getRegistrationTime() {
         return registrationTime;
     }
 
-    public void setRegistrationTime(Time registrationTime) {
+    public void setRegistrationTime(Timestamp registrationTime) {
         this.registrationTime = registrationTime;
     }
 
-    public Time getUpdatedTime() {
+    public Timestamp getUpdatedTime() {
         return updatedTime;
     }
 
-    public void setUpdatedTime(Time updatedTime) {
+    public void setUpdatedTime(Timestamp updatedTime) {
         this.updatedTime = updatedTime;
     }
 }

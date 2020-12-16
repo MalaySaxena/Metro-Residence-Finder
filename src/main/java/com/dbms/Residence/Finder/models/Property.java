@@ -4,9 +4,9 @@ package com.dbms.Residence.Finder.models;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
-
 public class Property extends Locality{
 
     private String name;
@@ -20,6 +20,32 @@ public class Property extends Locality{
 
     private String description;
 
+    private Boolean flag;
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
+    }
+
+    public Landlord getLandlord() {
+        return landlord;
+    }
+
+    public void setLandlord(Landlord landlord) {
+        this.landlord = landlord;
+    }
+
+    public List<Tenant> getTenantList() {
+        return tenantList;
+    }
+
+    public void setTenantList(List<Tenant> tenantList) {
+        this.tenantList = tenantList;
+    }
+
     @Column(name = "registration_date")
     private Date registrationDate;
 
@@ -32,6 +58,14 @@ public class Property extends Locality{
     private int existingPeople;
 
     private int bhk;
+
+    @ManyToOne
+    private Landlord landlord;
+
+    @OneToMany(mappedBy = "property")
+    private List<Tenant> tenantList;
+
+    //how to get
 
     public Property(String longitude, String latitude, String address, String city, String state, String name, int price, Date updateTime, BigDecimal rating, String description, Date registrationDate, String availaibilityStatus, Byte[] image, int existingPeople, int bhk) {
         super(longitude, latitude, address, city, state);

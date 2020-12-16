@@ -2,11 +2,12 @@ package com.dbms.Residence.Finder.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Landlord {
 
-    public Landlord(Long id, String username, Integer phoneNo, Gender gender, Date dob, String address, String nationality, Double rating, Boolean status, String remarks, boolean is_verified, Date created_at, Date updated_at) {
+    public Landlord(Long id, String username, Long phoneNo, Gender gender, Date dob, String address, String nationality, Double rating, Boolean status, String remarks, boolean is_verified, Date created_at, Date updated_at) {
         this.id = id;
         this.username = username;
         this.phoneNo = phoneNo;
@@ -29,7 +30,7 @@ public class Landlord {
     private String username;
 
     @Column(name = "phone_no")
-    private Integer phoneNo;
+    private Long phoneNo;
 
     private Gender gender;
 
@@ -51,6 +52,16 @@ public class Landlord {
 
     private Date updated_at;
 
+    @OneToMany(mappedBy = "landlord")
+    private List<Property> propertyList;
+
+    public List<Property> getPropertyList() {
+        return propertyList;
+    }
+
+    public void setPropertyList(List<Property> propertyList) {
+        this.propertyList = propertyList;
+    }
 
     public Long getId() {
         return id;
@@ -68,11 +79,11 @@ public class Landlord {
         this.username = username;
     }
 
-    public Integer getPhoneNo() {
+    public Long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(Integer phoneNo) {
+    public void setPhoneNo(Long phoneNo) {
         this.phoneNo = phoneNo;
     }
 
