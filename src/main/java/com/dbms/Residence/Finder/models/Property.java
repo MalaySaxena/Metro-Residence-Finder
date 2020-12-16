@@ -6,14 +6,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
-@Table(name = "tbl_property")
-public class Property {
-
-    @Id
-    @GeneratedValue
-    @Column(name = "locality_id")
-    private int localityId;
-
+public class Property extends Locality{
     private String name;
 
     private int price;
@@ -38,7 +31,8 @@ public class Property {
 
     private int bhk;
 
-    public Property(String name, int price, Date updateTime, BigDecimal rating, String description, Date registrationDate, String availaibilityStatus, Byte[] image, int existingPeople, int bhk) {
+    public Property(String longitude, String latitude, String address, String city, String state, String name, int price, Date updateTime, BigDecimal rating, String description, Date registrationDate, String availaibilityStatus, Byte[] image, int existingPeople, int bhk) {
+        super(longitude, latitude, address, city, state);
         this.name = name;
         this.price = price;
         this.updateTime = updateTime;
@@ -49,14 +43,6 @@ public class Property {
         this.image = image;
         this.existingPeople = existingPeople;
         this.bhk = bhk;
-    }
-
-    public int getLocalityId() {
-        return localityId;
-    }
-
-    public void setLocalityId(int localityId) {
-        this.localityId = localityId;
     }
 
     public String getName() {

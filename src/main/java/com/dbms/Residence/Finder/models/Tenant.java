@@ -5,7 +5,6 @@ import java.sql.Time;
 import java.util.Date;
 
 @Entity
-@Table(name = "tbl_tenant")
 public class Tenant {
 
     @Id
@@ -28,7 +27,7 @@ public class Tenant {
 
     private String nationality;
 
-    public Tenant(String username, Integer phoneNo, String firebaseId, Gender gender, Date dob, String address, String nationality, Integer budget, String deviceToken, Boolean isVerified, Time registrationTime, Time updatedTime) {
+    public Tenant(String username, Integer phoneNo, String firebaseId, Gender gender, Date dob, String address, String nationality, Integer budget, String deviceToken, Boolean isVerified) {
         this.username = username;
         this.phoneNo = phoneNo;
         this.firebaseId = firebaseId;
@@ -39,8 +38,6 @@ public class Tenant {
         this.budget = budget;
         this.deviceToken = deviceToken;
         this.isVerified = isVerified;
-        this.registrationTime = registrationTime;
-        this.updatedTime = updatedTime;
     }
 
     private Integer budget;

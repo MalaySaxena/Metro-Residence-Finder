@@ -1,22 +1,65 @@
 package com.dbms.Residence.Finder.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-@Table(name = "tbl_property")
 public class Booking {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "tenant_id")
-    private int tenantId ;
+    @Embeddable
+    static class BookingPK implements Serializable{
 
-    @Id
-    @GeneratedValue
-    @Column(name = "property_id")
-    private int propertyId ;
+        private Long tenantId;
+
+        private Long propertyId;
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            BookingPK bookPk = (BookingPK) o;
+            return tenantId == bookPk.tenantId &&
+                    propertyId == bookPk.propertyId;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(tenantId, propertyId);
+        }
+
+        public Long getTenantId() {
+            return tenantId;
+        }
+
+        public void setTenantId(Long tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        public Long getPropertyId() {
+            return propertyId;
+        }
+
+        public void setPropertyId(Long propertyId) {
+            this.propertyId = propertyId;
+        }
+    }
+
+
+    @EmbeddedId
+    private BookingPK id;
+
+    @ManyToOne
+    @MapsId("tenantId")
+    @JoinColumn(name = "tenant_id")
+    private Tenant tenant;
+
+    @ManyToOne
+    @MapsId("propertyId")
+    @JoinColumn(name = "property_id")
+    private Property property;
 
     @Column(name = "check_in")
     private Date checkIn ;
@@ -32,30 +75,7 @@ public class Booking {
     @Column(name = "updated_time")
     private Timestamp updatedTime ;
 
-    public Booking(int propertyId, Date checkIn, Date checkOut, String comments, Timestamp createdTime, Timestamp updatedTime) {
-        this.propertyId = propertyId;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
-        this.comments = comments;
-        this.createdTime = createdTime;
-        this.updatedTime = updatedTime;
-    }
 
-    public int getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(int tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public int getPropertyId() {
-        return propertyId;
-    }
-
-    public void setPropertyId(int propertyId) {
-        this.propertyId = propertyId;
-    }
 
     public Date getCheckIn() {
         return checkIn;

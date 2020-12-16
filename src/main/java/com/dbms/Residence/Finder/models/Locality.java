@@ -1,10 +1,9 @@
 package com.dbms.Residence.Finder.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Locality {
 
     @Id
@@ -20,6 +19,10 @@ public class Locality {
     private String city;
 
     private String state;
+
+    public Locality() {
+
+    }
 
     public Long getId() {
         return id;
