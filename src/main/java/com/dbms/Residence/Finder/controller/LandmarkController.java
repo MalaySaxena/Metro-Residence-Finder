@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,19 @@ public class LandmarkController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Landmark>> getLandmarks(){
-        return new ResponseEntity<List<Landmark>>(landmarkService.getAllLandmark(), HttpStatus.OK);
+    public HashMap<String,Object> getLandmarks(){
+
+        List<Landmark> landmarks = landmarkService.getAllLandmark();
+
+        HashMap<String,Object> hashMap = new HashMap<>();
+
+        if (landmarks!=null){
+            hashMap.put("data",landmarks);
+            hashMap.put("status",true);
+        }else{
+            hashMap.put("status",false);
+        }
+
+        return hashMap;
     }
 }

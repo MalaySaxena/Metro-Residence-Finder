@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @RestController
 @RequestMapping("/api/tenant")
 public class TenantController {
@@ -18,9 +20,12 @@ public class TenantController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createTenant(@RequestBody Tenant tenant){
+    public HashMap<String,Object> createTenant(@RequestBody Tenant tenant){
         tenantService.addTenant(tenant);
-        return new ResponseEntity<String>("Tenant Created", HttpStatus.OK );
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("data","Tenant Created");
+        hashMap.put("status",true);
+        return hashMap;
     }
 
     @PutMapping("/update")
@@ -29,13 +34,36 @@ public class TenantController {
     }
 
     @GetMapping("/check_mobile/{mobile}")
-    public ResponseEntity<Tenant> getTenantByMobile(@PathVariable("mobile") Long mobile){
-        return new ResponseEntity<Tenant>(tenantService.getTenantByPhoneNo(mobile),HttpStatus.OK);
+    public HashMap<String,Object> getTenantByMobile(@PathVariable("mobile") Long mobile){
+
+        Tenant tenant = tenantService.getTenantByPhoneNo(mobile);
+        HashMap<String,Object> hashMap = new HashMap<>();
+
+        if (tenant!=null){
+            hashMap.put("data",tenant);
+            hashMap.put("status",true);
+        }else{
+            hashMap.put("status",false);
+        }
+
+        return hashMap;
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Tenant> getTenantById(@PathVariable("id") Long id){
-        return new ResponseEntity<Tenant>(tenantService.getTenant(id),HttpStatus.OK);
+    public HashMap<String,Object> getTenantById(@PathVariable("id") Long id){
+
+        Tenant tenant = tenantService.getTenant(id);
+        HashMap<String,Object> hashMap = new HashMap<>();
+
+        if (tenant!=null){
+            hashMap.put("data",tenant);
+            hashMap.put("status",true);
+        }else{
+            hashMap.put("status",false);
+        }
+
+
+        return hashMap;
     }
 
 

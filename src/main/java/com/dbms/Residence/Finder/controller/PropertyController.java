@@ -38,8 +38,19 @@ public class PropertyController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Property>> getAllProperty(){
-        return new ResponseEntity<List<Property>>(propertyService.getAllProperty(),HttpStatus.OK);
+    public HashMap<String,Object> getAllProperty(){
+
+        List<Property> properties = propertyService.getAllProperty();
+        HashMap<String,Object> hashMap = new HashMap<>();
+
+        if (properties!=null){
+            hashMap.put("data",properties);
+            hashMap.put("status",true);
+        }else{
+            hashMap.put("status",false);
+        }
+
+        return hashMap;
     }
 
     @PostMapping
@@ -49,13 +60,37 @@ public class PropertyController {
     }
 
     @GetMapping("/popular")
-    public ResponseEntity<List<Property>> getPopularProperty(){
-        return new ResponseEntity<List<Property>>(propertyService.getPopularProperty(), HttpStatus.OK);
+    public HashMap<String,Object> getPopularProperty(){
+
+        List<Property> properties = propertyService.getPopularProperty();
+        HashMap<String,Object> hashMap = new HashMap<>();
+
+        if (properties!=null){
+            hashMap.put("data",properties);
+            hashMap.put("status",true);
+        }else{
+            hashMap.put("status",false);
+        }
+
+
+        return hashMap;
     }
 
     @GetMapping("/premium")
-    public ResponseEntity<List<Property>> getPremiumProperty(){
-        return new ResponseEntity<List<Property>>(propertyService.getPremiumProperty(), HttpStatus.OK);
+    public HashMap<String,Object> getPremiumProperty(){
+
+        List<Property> properties = propertyService.getPremiumProperty();
+        HashMap<String,Object> hashMap = new HashMap<>();
+
+        if (properties!=null){
+            hashMap.put("data",properties);
+            hashMap.put("status",true);
+        }else{
+            hashMap.put("status",false);
+        }
+
+
+        return hashMap;
     }
 
 
