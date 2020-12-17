@@ -60,9 +60,9 @@ public class PropertyController {
     }
 
     @GetMapping("/popular")
-    public HashMap<String,Object> getPopularProperty(){
+    public HashMap<String,Object> getPopularProperty(@RequestParam("lat") String latitude, @RequestParam("long") String longitude){
 
-        List<Property> properties = propertyService.getPopularProperty();
+        List<Property> properties = propertyService.getPopularProperty(latitude, longitude);
         HashMap<String,Object> hashMap = new HashMap<>();
 
         if (properties!=null){
@@ -76,9 +76,9 @@ public class PropertyController {
     }
 
     @GetMapping("/premium")
-    public HashMap<String,Object> getPremiumProperty(){
+    public HashMap<String,Object> getPremiumProperty(@RequestParam("lat") String latitude, @RequestParam("long") String longitude){
 
-        List<Property> properties = propertyService.getPremiumProperty();
+        List<Property> properties = propertyService.getPremiumProperty(latitude, longitude);
         HashMap<String,Object> hashMap = new HashMap<>();
 
         if (properties!=null){

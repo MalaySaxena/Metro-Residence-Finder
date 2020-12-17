@@ -44,10 +44,33 @@ public class LandmarkService {
         return (rad * 180.0 / Math.PI);
     }
 
-    public List<Property> getNearProperty(Landmark landmark, List<Property> propertyList, int radius) {
+    public List<Property> getNearPropertyByLandmark(Landmark landmark, List<Property> propertyList, int radius) {
 
         float landmarkLat = Float.parseFloat(landmark.getLatitude());
         float landmarkLong = Float.parseFloat(landmark.getLongitude());
+
+        List<Property> filteredProperty  = new ArrayList<>();
+        List<Integer>  distances = new ArrayList<>();
+
+        for (Property property:propertyList){
+
+            float propertyLat = Float.parseFloat(property.getLatitude());
+            float propertyLong = Float.parseFloat(property.getLongitude());
+
+            double distance = calc_distance(landmarkLat,landmarkLong,propertyLat,propertyLong,'K');
+
+            if (distance <= radius){
+                filteredProperty.add(property);
+                distances.add((int)distance);
+            }
+        }
+        filteredProperty.sort(Comparator.comparingInt(distances::indexOf));
+        return filteredProperty;
+    }
+    public List<Property> getNearProperty(String latitude, String longitude, List<Property> propertyList, int radius) {
+
+        float landmarkLat = Float.parseFloat(latitude);
+        float landmarkLong = Float.parseFloat(longitude);
 
         List<Property> filteredProperty  = new ArrayList<>();
         List<Integer>  distances = new ArrayList<>();

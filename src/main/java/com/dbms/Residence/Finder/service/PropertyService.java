@@ -10,9 +10,11 @@ import java.util.List;
 public class PropertyService {
 
     private PropertyRepository propertyRepository;
+    private LandmarkService landmarkService;
 
-    public PropertyService(PropertyRepository propertyRepository) {
+    public PropertyService(PropertyRepository propertyRepository, LandmarkService landmarkService) {
         this.propertyRepository = propertyRepository;
+        this.landmarkService = landmarkService;
     }
 
     public void addProperty(Property property){
@@ -27,12 +29,16 @@ public class PropertyService {
         return (List<Property>) propertyRepository.findAll();
     }
 
-    public List<Property> getPopularProperty(){
-        return propertyRepository.findByPopularProperty();
+    public List<Property> getPopularProperty(String latitude, String longitude){
+        List<Property> popularProperty = propertyRepository.findByPopularProperty();
+        popularProperty = landmarkService.getNearProperty(latitude,longitude,popularProperty,10);
+        return popularProperty;
     }
 
-    public List<Property> getPremiumProperty(){
-        return propertyRepository.findByPremiumProperty();
+    public List<Property> getPremiumProperty(String latitude, String longitude){
+        List<Property> premiumProperty = propertyRepository.findByPremiumProperty();
+        premiumProperty = landmarkService.getNearProperty(latitude,longitude,premiumProperty,25);
+        return premiumProperty;
     }
 
     public void setOwnerOfProperty(Landlord landlord, Property property){
