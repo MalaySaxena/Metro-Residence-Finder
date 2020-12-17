@@ -40,6 +40,46 @@ public class Property extends Locality{
 
     private int bhk;
 
+    private int areaSqFt;
+
+    private String furnishedStatus;
+
+    public int getAreaSqFt() {
+        return areaSqFt;
+    }
+
+    public void setAreaSqFt(int areaSqFt) {
+        this.areaSqFt = areaSqFt;
+    }
+
+    public String getFurnishedStatus() {
+        return furnishedStatus;
+    }
+
+    public void setFurnishedStatus(String furnishedStatus) {
+        this.furnishedStatus = furnishedStatus;
+    }
+
+    public String getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(String deposit) {
+        this.deposit = deposit;
+    }
+
+    public String getBathrooms() {
+        return bathrooms;
+    }
+
+    public void setBathrooms(String bathrooms) {
+        this.bathrooms = bathrooms;
+    }
+
+    private String deposit;
+
+    private String bathrooms;
+
     @ManyToOne
     private Landlord landlord;
 
