@@ -31,13 +31,15 @@ public class PropertyService {
 
     public List<Property> getPopularProperty(String latitude, String longitude){
         List<Property> popularProperty = propertyRepository.findByPopularProperty();
-        popularProperty = landmarkService.getNearProperty(latitude,longitude,popularProperty,10);
+        //popularProperty = landmarkService.getNearProperty(latitude,longitude,popularProperty,10);
         return popularProperty;
     }
 
     public List<Property> getPremiumProperty(String latitude, String longitude){
         List<Property> premiumProperty = propertyRepository.findByPremiumProperty();
-        premiumProperty = landmarkService.getNearProperty(latitude,longitude,premiumProperty,25);
+        System.out.println(premiumProperty);
+        //premiumProperty = landmarkService.getNearProperty(latitude,longitude,premiumProperty,25);
+        System.out.println(premiumProperty);
         return premiumProperty;
     }
 
