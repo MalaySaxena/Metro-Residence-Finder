@@ -49,6 +49,9 @@ public class Booking {
         this.property = property;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        this.id = new BookingPK();
+        this.id.setTenantId(tenant.getId());
+        this.id.setPropertyId(property.getId());
     }
 
     public Date getCheckIn() {
