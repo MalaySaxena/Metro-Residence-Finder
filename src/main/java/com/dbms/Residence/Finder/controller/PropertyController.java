@@ -3,10 +3,12 @@ package com.dbms.Residence.Finder.controller;
 
 import com.dbms.Residence.Finder.models.Property;
 import com.dbms.Residence.Finder.service.PropertyService;
+import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -20,8 +22,19 @@ public class PropertyController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Property> getProperty(@PathVariable("id") Long id){
-        return new ResponseEntity<Property>(propertyService.getProperty(id), HttpStatus.OK);
+    public HashMap<String,Object> getProperty(@PathVariable("id") Long id){
+        HashMap<String,Object> hashMap = new HashMap<>();
+
+        Property property = propertyService.getProperty(id);
+
+        if(property!=null){
+            hashMap.put("data",property);
+            hashMap.put("status",true);
+        }else{
+            hashMap.put("status",false);
+        }
+
+        return hashMap;
     }
 
     @GetMapping
