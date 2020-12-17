@@ -23,6 +23,16 @@ public class Property extends Locality{
 
     private Boolean flag;
 
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public Property(){
         super();
     }

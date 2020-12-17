@@ -6,6 +6,7 @@ public class FilterProperty {
     private float rating;
     private int price;
 
+
     public float getDistance() {
         return distance;
     }

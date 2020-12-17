@@ -18,8 +18,8 @@ public class BookingService {
         this.bookingRepository = bookingRepository;
     }
 
-    public void addBooking(Tenant tenant, Property property, Date checkIn, Date checkOut, String comments){
-        bookingRepository.save(new Booking(tenant, property, checkIn, checkOut, comments));
+    public void addBooking(Tenant tenant, Property property, Date checkIn, Date checkOut){
+        bookingRepository.save(new Booking(tenant, property, checkIn, checkOut));
     }
 
 }

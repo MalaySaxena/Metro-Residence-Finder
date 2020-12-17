@@ -1,5 +1,7 @@
 package com.dbms.Residence.Finder.service;
 
+import com.dbms.Residence.Finder.models.Booking;
+import com.dbms.Residence.Finder.models.BookingDTO;
 import com.dbms.Residence.Finder.models.Property;
 import com.dbms.Residence.Finder.models.Tenant;
 import com.dbms.Residence.Finder.repository.TenantRepository;
@@ -49,12 +51,12 @@ public class TenantService {
         }
     }
 
-    public void bookProperty(Long tenantId, Long propertyId, Date checkIn, Date checkOut, String comments){
-        Tenant tenant = getTenant(tenantId);
-        Property property = propertyService.getProperty(propertyId);
+    public void bookProperty(BookingDTO bookingDTO){
+        Tenant tenant = getTenant(bookingDTO.getTenantId());
+        Property property = propertyService.getProperty(bookingDTO.getPropertyId());
 
         tenant.setProperty(property);
-        bookingService.addBooking(tenant, property, checkIn, checkOut, comments);
+        bookingService.addBooking(tenant, property, bookingDTO.getCheckIn(), bookingDTO.getCheckOut());
 
         tenantRepository.save(tenant);
     }

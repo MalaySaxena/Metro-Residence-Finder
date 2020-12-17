@@ -1,8 +1,11 @@
 package com.dbms.Residence.Finder.controller;
 
 
+import com.dbms.Residence.Finder.models.Booking;
+import com.dbms.Residence.Finder.models.BookingDTO;
 import com.dbms.Residence.Finder.models.Property;
 import com.dbms.Residence.Finder.service.PropertyService;
+import com.dbms.Residence.Finder.service.TenantService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +17,11 @@ import java.util.List;
 public class PropertyController {
 
     private PropertyService propertyService;
+    private TenantService tenantService;
 
-    public PropertyController(PropertyService propertyService) {
+    public PropertyController(PropertyService propertyService, TenantService tenantService) {
         this.propertyService = propertyService;
+        this.tenantService = tenantService;
     }
 
     @GetMapping("/get/{id}")
@@ -43,6 +48,11 @@ public class PropertyController {
     @GetMapping("/premium")
     public ResponseEntity<List<Property>> getPremiumProperty(){
         return new ResponseEntity<List<Property>>(propertyService.getPremiumProperty(), HttpStatus.OK);
+    }
+
+    @PostMapping("/book")
+    public void bookingProperty(@RequestBody BookingDTO bookingDTO){
+        tenantService.bookProperty(bookingDTO);
     }
 
 }
