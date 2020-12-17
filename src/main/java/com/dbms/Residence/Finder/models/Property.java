@@ -2,6 +2,8 @@ package com.dbms.Residence.Finder.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -80,6 +82,8 @@ public class Property extends Locality{
 
     private String bathrooms;
 
+    @JsonIgnore
+    @JsonManagedReference
     @ManyToOne
     private Landlord landlord;
 

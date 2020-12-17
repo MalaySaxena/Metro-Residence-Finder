@@ -72,7 +72,6 @@ public class PropertyController {
             hashMap.put("status",false);
         }
 
-
         return hashMap;
     }
 
@@ -88,7 +87,6 @@ public class PropertyController {
         }else{
             hashMap.put("status",false);
         }
-
 
         return hashMap;
     }
