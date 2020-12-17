@@ -1,6 +1,8 @@
 package com.dbms.Residence.Finder.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -77,6 +79,7 @@ public class Property extends Locality{
     @ManyToOne
     private Landlord landlord;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "property")
     private List<Tenant> tenantList;
 
