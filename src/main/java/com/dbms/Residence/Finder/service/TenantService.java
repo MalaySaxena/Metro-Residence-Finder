@@ -31,7 +31,7 @@ public class TenantService {
         tenantRepository.deleteById(id);
     }
 
-    public Tenant getTenantByPhoneNo(Long phoneNo){
+    public Tenant getTenantByPhoneNo(String phoneNo){
         return tenantRepository.findByPhoneNo(phoneNo);
     }
 
