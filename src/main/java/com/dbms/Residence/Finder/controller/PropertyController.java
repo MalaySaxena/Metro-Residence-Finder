@@ -17,11 +17,9 @@ import java.util.List;
 public class PropertyController {
 
     private PropertyService propertyService;
-    private TenantService tenantService;
 
-    public PropertyController(PropertyService propertyService, TenantService tenantService) {
+    public PropertyController(PropertyService propertyService) {
         this.propertyService = propertyService;
-        this.tenantService = tenantService;
     }
 
     @GetMapping("/get/{id}")
@@ -50,9 +48,5 @@ public class PropertyController {
         return new ResponseEntity<List<Property>>(propertyService.getPremiumProperty(), HttpStatus.OK);
     }
 
-    @PostMapping("/book")
-    public void bookingProperty(@RequestBody BookingDTO bookingDTO){
-        tenantService.bookProperty(bookingDTO);
-    }
 
 }
