@@ -39,7 +39,7 @@ public class TestController {
     @PostMapping("/tenant")
     public void set(){
         System.out.println("post");
-        tenantRepository.save(new Tenant("malay",9344L,"23", Gender.Male,new Date(),
+        tenantRepository.save(new Tenant("malay","9344","23", Gender.Male,new Date(),
                 "Indore", "Indian", 2400, "ew", Boolean.TRUE));
     }
 

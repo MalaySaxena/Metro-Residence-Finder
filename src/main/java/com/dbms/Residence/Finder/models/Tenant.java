@@ -18,7 +18,7 @@ public class Tenant {
     private String username;
 
     @Column(name = "phone_no")
-    private Long phoneNo;
+    private String phoneNo;
 
     @Column(name ="firebase_id")
     private String firebaseId;
@@ -31,7 +31,7 @@ public class Tenant {
 
     private String nationality;
 
-    public Tenant(String username, Long phoneNo, String firebaseId, Gender gender, Date dob, String address,
+    public Tenant(String username, String phoneNo, String firebaseId, Gender gender, Date dob, String address,
                   String nationality, Integer budget, String deviceToken, Boolean isVerified) {
         this.username = username;
         this.phoneNo = phoneNo;
@@ -74,6 +74,14 @@ public class Tenant {
     @ManyToOne
     private Property property;
 
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
     public Long getId() {
         return id;
     }
@@ -88,14 +96,6 @@ public class Tenant {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Long getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(Long phoneNo) {
-        this.phoneNo = phoneNo;
     }
 
     public String getFirebaseId() {
