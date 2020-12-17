@@ -34,7 +34,7 @@ public class TenantController {
     }
 
     @GetMapping("/check_mobile/{mobile}")
-    public HashMap<String,Object> getTenantByMobile(@PathVariable("mobile") Long mobile){
+    public HashMap<String,Object> getTenantByMobile(@PathVariable("mobile") String mobile){
 
         Tenant tenant = tenantService.getTenantByPhoneNo(mobile);
         HashMap<String,Object> hashMap = new HashMap<>();
