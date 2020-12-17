@@ -6,6 +6,7 @@ import com.dbms.Residence.Finder.repository.TenantRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.Optional;
 
 @Service
@@ -48,12 +49,12 @@ public class TenantService {
         }
     }
 
-    public void bookProperty(Long tenantId, Long propertyId){
+    public void bookProperty(Long tenantId, Long propertyId, Date checkIn, Date checkOut, String comments){
         Tenant tenant = getTenant(tenantId);
         Property property = propertyService.getProperty(propertyId);
 
         tenant.setProperty(property);
-        bookingService.addBooking(tenant, property);
+        bookingService.addBooking(tenant, property, checkIn, checkOut, comments);
 
         tenantRepository.save(tenant);
     }

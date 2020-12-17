@@ -44,6 +44,13 @@ public class Booking {
 
     }
 
+    public Booking(Tenant tenant, Property property, Date checkIn, Date checkOut, String comments) {
+        this.tenant = tenant;
+        this.property = property;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.comments = comments;
+    }
 
     public Date getCheckIn() {
         return checkIn;
