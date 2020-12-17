@@ -6,6 +6,7 @@ import com.dbms.Residence.Finder.models.Tenant;
 import com.dbms.Residence.Finder.repository.PropertyRepository;
 import com.dbms.Residence.Finder.repository.TenantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,5 +62,12 @@ public class TestController {
         t.setProperty(p);
 
         tenantRepository.save(t);
+    }
+
+    @GetMapping("/customHeader")
+    public ResponseEntity<String> customHeader() {
+        return ResponseEntity.ok()
+                .header("Custom-Header", "foo")
+                .body("Custom header set");
     }
 }

@@ -1,14 +1,12 @@
 package com.dbms.Residence.Finder.service;
 
-import com.dbms.Residence.Finder.models.Booking;
-import com.dbms.Residence.Finder.models.BookingDTO;
+import com.dbms.Residence.Finder.models.DTO.BookingDTO;
 import com.dbms.Residence.Finder.models.Property;
 import com.dbms.Residence.Finder.models.Tenant;
 import com.dbms.Residence.Finder.repository.TenantRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.util.Optional;
 
 @Service

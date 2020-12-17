@@ -1,6 +1,6 @@
 package com.dbms.Residence.Finder.controller;
 
-import com.dbms.Residence.Finder.models.BookingDTO;
+import com.dbms.Residence.Finder.models.DTO.BookingDTO;
 import com.dbms.Residence.Finder.service.TenantService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

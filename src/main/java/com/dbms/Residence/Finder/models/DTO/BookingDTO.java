@@ -1,4 +1,4 @@
-package com.dbms.Residence.Finder.models;
+package com.dbms.Residence.Finder.models.DTO;
 
 import java.sql.Date;
 

@@ -24,7 +24,9 @@ public class TenantController {
     }
 
     @PutMapping("/update")
-    public void updateTenant(){}
+    public void updateTenant(@RequestBody Tenant tenant){
+        tenantService.updateTenant(tenant);
+    }
 
     @GetMapping("/check_mobile/{mobile}")
     public ResponseEntity<Tenant> getTenantByMobile(@PathVariable("mobile") Long mobile){

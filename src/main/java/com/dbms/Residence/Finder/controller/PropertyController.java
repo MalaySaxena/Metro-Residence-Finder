@@ -1,11 +1,8 @@
 package com.dbms.Residence.Finder.controller;
 
 
-import com.dbms.Residence.Finder.models.Booking;
-import com.dbms.Residence.Finder.models.BookingDTO;
 import com.dbms.Residence.Finder.models.Property;
 import com.dbms.Residence.Finder.service.PropertyService;
-import com.dbms.Residence.Finder.service.TenantService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

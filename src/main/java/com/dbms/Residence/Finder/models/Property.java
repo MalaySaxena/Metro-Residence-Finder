@@ -27,42 +27,6 @@ public class Property extends Locality{
 
     private String type;
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Property(){
-        super();
-    }
-
-    public Boolean getFlag() {
-        return flag;
-    }
-
-    public void setFlag(Boolean flag) {
-        this.flag = flag;
-    }
-
-    public Landlord getLandlord() {
-        return landlord;
-    }
-
-    public void setLandlord(Landlord landlord) {
-        this.landlord = landlord;
-    }
-
-    public List<Tenant> getTenantList() {
-        return tenantList;
-    }
-
-    public void setTenantList(List<Tenant> tenantList) {
-        this.tenantList = tenantList;
-    }
-
     @Column(name = "registration_date")
     private Date registrationDate;
 
@@ -131,6 +95,38 @@ public class Property extends Locality{
 
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Landlord getLandlord() {
+        return landlord;
+    }
+
+    public void setLandlord(Landlord landlord) {
+        this.landlord = landlord;
+    }
+
+    public List<Tenant> getTenantList() {
+        return tenantList;
+    }
+
+    public void setTenantList(List<Tenant> tenantList) {
+        this.tenantList = tenantList;
     }
 
     public String getAvailaibilityStatus() {
