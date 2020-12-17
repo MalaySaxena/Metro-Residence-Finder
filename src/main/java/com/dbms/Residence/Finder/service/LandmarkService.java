@@ -81,7 +81,7 @@ public class LandmarkService {
             float propertyLong = Float.parseFloat(property.getLongitude());
 
             double distance = calc_distance(landmarkLat,landmarkLong,propertyLat,propertyLong,'K');
-
+            System.out.println(distance);
             if (distance <= radius){
                 filteredProperty.add(property);
                 distances.add((int)distance);

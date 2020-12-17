@@ -38,7 +38,7 @@ public class PropertyService {
     public List<Property> getPremiumProperty(String latitude, String longitude){
         List<Property> premiumProperty = propertyRepository.findByPremiumProperty();
         System.out.println(premiumProperty);
-        //premiumProperty = landmarkService.getNearProperty(latitude,longitude,premiumProperty,25);
+        premiumProperty = landmarkService.getNearProperty(latitude,longitude,premiumProperty,25);
         System.out.println(premiumProperty);
         return premiumProperty;
     }
