@@ -27,11 +27,11 @@ public class PropertyService {
         return (List<Property>) propertyRepository.findAll();
     }
 
-    public List<Property> getPopularPropert(){
+    public List<Property> getPopularProperty(){
         return propertyRepository.findByPopularProperty();
     }
 
-    public List<Property> getPremiumPropert(){
+    public List<Property> getPremiumProperty(){
         return propertyRepository.findByPremiumProperty();
     }
 

@@ -37,12 +37,12 @@ public class PropertyController {
 
     @GetMapping("/popular")
     public ResponseEntity<List<Property>> getPopularProperty(){
-        return new ResponseEntity<List<Property>>(propertyService.getPopularPropert(), HttpStatus.OK);
+        return new ResponseEntity<List<Property>>(propertyService.getPopularProperty(), HttpStatus.OK);
     }
 
     @GetMapping("/premium")
     public ResponseEntity<List<Property>> getPremiumProperty(){
-        return new ResponseEntity<List<Property>>(propertyService.getPremiumPropert(), HttpStatus.OK);
+        return new ResponseEntity<List<Property>>(propertyService.getPremiumProperty(), HttpStatus.OK);
     }
 
 }
