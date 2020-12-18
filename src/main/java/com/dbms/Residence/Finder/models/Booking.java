@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -34,6 +35,7 @@ public class Booking {
     private String comments ;
 
     @Column(name = "created_time")
+
     private Timestamp createdTime ;
 
     @Column(name = "updated_time")
@@ -42,6 +44,12 @@ public class Booking {
 
     public Booking(){
 
+    }
+
+    @PrePersist
+    public void settingCurrentTime(){
+        setCreatedTime(Timestamp.valueOf(LocalDateTime.now()));
+        setUpdatedTime(Timestamp.valueOf(LocalDateTime.now()));
     }
 
     public BookingPK getId() {
