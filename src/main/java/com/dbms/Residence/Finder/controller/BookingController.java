@@ -20,9 +20,11 @@ public class BookingController {
     }
 
     @PostMapping
-    public String addBooking(@RequestBody BookingDTO bookingDTO){
+    public HashMap<String, Boolean> addBooking(@RequestBody BookingDTO bookingDTO){
         tenantService.bookProperty(bookingDTO);
-        return "Booking Done";
+        HashMap<String,Boolean> h = new HashMap<>();
+        h.put("status",true);
+        return h;
     }
 
 
