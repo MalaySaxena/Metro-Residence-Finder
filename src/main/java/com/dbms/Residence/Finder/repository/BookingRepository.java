@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface BookingRepository extends CrudRepository<Booking, BookingPK> {
 
-    @Query("select b from booking b where b.id.tenantId = :tenant_id")
+    @Query("select b from Booking b where b.id.tenantId = :tenant_id")
     List<Booking> findByTenantId(Long tenant_id);
 
 }
