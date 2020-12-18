@@ -1,6 +1,7 @@
 package com.dbms.Residence.Finder.repository;
 
 import com.dbms.Residence.Finder.models.Booking;
+import com.dbms.Residence.Finder.models.DTO.BookingDTO;
 import com.dbms.Residence.Finder.models.PrimaryKeys.BookingPK;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

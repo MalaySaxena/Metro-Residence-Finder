@@ -1,6 +1,8 @@
 package com.dbms.Residence.Finder.service;
 
 import com.dbms.Residence.Finder.models.Booking;
+import com.dbms.Residence.Finder.models.DTO.BookingDTO;
+import com.dbms.Residence.Finder.models.PrimaryKeys.BookingPK;
 import com.dbms.Residence.Finder.models.Property;
 import com.dbms.Residence.Finder.models.Tenant;
 import com.dbms.Residence.Finder.repository.BookingRepository;

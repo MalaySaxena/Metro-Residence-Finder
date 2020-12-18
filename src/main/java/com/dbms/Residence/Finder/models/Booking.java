@@ -44,6 +44,30 @@ public class Booking {
 
     }
 
+    public BookingPK getId() {
+        return id;
+    }
+
+    public void setId(BookingPK id) {
+        this.id = id;
+    }
+
+    public Tenant getTenant() {
+        return tenant;
+    }
+
+    public void setTenant(Tenant tenant) {
+        this.tenant = tenant;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
+
     public Booking(Tenant tenant, Property property, Date checkIn, Date checkOut) {
         this.tenant = tenant;
         this.property = property;
