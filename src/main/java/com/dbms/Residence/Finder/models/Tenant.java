@@ -17,7 +17,7 @@ public class Tenant {
 
     private String username;
 
-    @Column(name = "phone_no")
+    @Column(name = "phone_no", unique = true)
     private String phoneNo;
 
     @Column(name ="firebase_id")
