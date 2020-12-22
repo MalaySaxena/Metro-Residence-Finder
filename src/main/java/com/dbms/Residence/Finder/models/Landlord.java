@@ -1,6 +1,7 @@
 package com.dbms.Residence.Finder.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -54,7 +55,7 @@ public class Landlord {
 
     private Date updated_at;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "landlord")
     private List<Property> propertyList;
 

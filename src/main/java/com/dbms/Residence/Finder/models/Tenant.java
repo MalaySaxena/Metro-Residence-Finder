@@ -1,5 +1,6 @@
 package com.dbms.Residence.Finder.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -69,8 +70,7 @@ public class Tenant {
     @Column(name ="updated_time")
     private Timestamp updatedTime;
 
-    @JsonIgnore
-    @JsonManagedReference
+    @JsonBackReference
     @ManyToOne
     private Property property;
 

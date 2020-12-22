@@ -82,12 +82,11 @@ public class Property extends Locality{
 
     private String bathrooms;
 
-    @JsonIgnore
-    @JsonManagedReference
+    @JsonBackReference
     @ManyToOne
     private Landlord landlord;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(mappedBy = "property")
     private List<Tenant> tenantList;
 
